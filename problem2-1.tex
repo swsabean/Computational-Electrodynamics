@@ -1,0 +1,23 @@
+\documentclass{article}
+
+\begin{document}
+2.1 Use the Taylor's series expansion method to a derive a second-order accurate 
+central-difference approximation for $\frac{\partial u}{\partial x}$.
+
+\textsc{Solution:} To derive a second-order accurate central-difference approximation for $\frac{\partial u}{\partial x}$ using Taylor's series expansion, we can begin by expanding $u(x \pm \Delta x)$ in a Taylor series around $x$:
+\[
+u(x + \Delta x) = u(x) + \Delta x \frac{\partial u}{\partial x}(x) + O(\Delta x^2),
+\]
+\[
+u(x - \Delta x) = u(x) - \Delta x \frac{\partial u}{\partial x}(x) + O(\Delta x^2).
+\]
+Next, we can subtract the second equation from the first to eliminate the even-order terms:
+\[
+u(x + \Delta x) - u(x - \Delta x) = 2 \Delta x \frac{\partial u}{\partial x}(x) + O(\Delta x^3).
+\]
+Solving for $\frac{\partial u}{\partial x}(x)$, we get:
+\[
+\frac{\partial u}{\partial x}(x) = \frac{u(x + \Delta x) - u(x - \Delta x)}{2 \Delta x} + O(\Delta x^2).
+\]
+This is the second-order accurate central-difference approximation for $\frac{\partial u}{\partial x}(x)$. The error term is proportional to $\Delta x^2$, which means that the approximation becomes more accurate as $\Delta x$ gets smaller. However, this approximation is not as accurate as the third- or fourth-order approximations.
+\end{document}
