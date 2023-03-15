@@ -18,7 +18,7 @@ N_MAX = 10
 N_STEPS = 100
 
 N_range = np.linspace(N_MIN, N_MAX, N_STEPS)
-a_range = np.linspace(N_MIN, N_transition, N_STEPS)
+A_range = np.linspace(N_MIN, N_transition, N_STEPS)
 
 phase_velocities = np.zeros(N_STEPS)
 attenuation = np.zeros(N_STEPS)
@@ -32,14 +32,14 @@ for i, N_lambda in enumerate(N_range):
             / (N_lambda * np.arccos(1 + 4 * (np.cos(np.pi / N_lambda) - 1)))
         )
         
-for i, N_lambda in enumerate(a_range):
+for i, N_lambda in enumerate(A_range):
     zeta = 1 + (1 / S) ** 2 * (np.cos(2 * np.pi * S / N_lambda) - 1)
     attenuation[i] = -np.log(-zeta - np.sqrt(zeta ** 2 - 1))
 
 plt.rcParams.update({'font.size': 12})
 fig, ax1 = plt.subplots(figsize=(10, 6))
 
-ax1.plot(a_range, attenuation, 'b--', linewidth=2)
+ax1.plot(A_range, attenuation, 'b--', linewidth=2)
 ax1.set_xlabel('Grid Sampling Density (points per free-space wavelength)', fontsize=14)
 ax1.set_ylabel('Constant Attenuation (nepers/grid cell)', color='b', fontsize=14)
 ax1.tick_params('y', colors='b')
