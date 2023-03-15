@@ -53,7 +53,6 @@ ax2.tick_params('y', colors='r')
 ax2.set_ylim(0.0, 2.0)
 
 plt.title('Numerical Dispersion in FDTD Scheme', fontsize=16)
-fig.tight_layout()
 
-plt.savefig('/storage/emulated/0/Download/Problem2_3.png', dpi=300)
+plt.savefig('Problem2_3.png', dpi=300)
 plt.show()
