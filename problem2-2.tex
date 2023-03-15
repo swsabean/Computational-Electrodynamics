@@ -1,0 +1,34 @@
+\documentclass{article}
+
+\begin{document}
+2.2 Repeat Problem 2.1, but now derive a fourth-order accurate central-difference approximation for $\frac{\partial u}{\partial x}$. 
+
+\textsc{Solution:} To derive a fourth-order accurate central-difference approximation for $\frac{\partial u}{\partial x}$ using Taylor's series expansion, we can expand $u(x \pm \Delta x)$ and $u(x \pm 2 \Delta$ in Taylor series around $x$ up to the third order:
+\[
+u(x + 2 \Delta x) = u(x) + 2 \Delta x \frac{\partial u}{\partial x}(x) + 2 \Delta x^2 \frac{\partial^2 u}{\partial x^2}(x) + \frac{4}{3} \Delta x^3 \frac{\partial^3 u}{\partial x^3}(x) + O(\Delta x^4)
+\]
+\[
+u(x + \Delta x) = u(x) + \Delta x \frac{\partial u}{\partial x}(x) + \frac{1}{2} \Delta x^2 \frac{\partial^2 u}{\partial x^2}(x) + \frac{1}{6} \Delta x^3 \frac{\partial^3 u}{\partial x^3}(x) + O(\Delta x^4)
+\]
+\[
+u(x - \Delta x) = u(x) - \Delta x \frac{\partial u}{\partial x}(x) + \frac{1}{2} \Delta x^2 \frac{\partial^2 u}{\partial x^2}(x) - \frac{1}{6} \Delta x^3 \frac{\partial^3 u}{\partial x^3}(x) + O(\Delta x^4)
+\]
+\[
+u(x - 2 \Delta x) = u(x) - 2 \Delta x \frac{\partial u}{\partial x}(x) + 2 \Delta x^2 \frac{\partial^2 u}{\partial x^2}(x) - \frac{4}{3} \Delta x^3 \frac{\partial^3 u}{\partial x^3}(x) + O(\Delta x^4)
+\]
+First, we note that 
+\[
+-u(x + 2 \Delta x) + 8 u(x + \Delta x) = 7 u(x) + 6 \Delta x \frac{\partial u}{\partial x}(x) + 2 \Delta x^2 \frac{\partial^2 u}{\partial x^2}(x) + O(\Delta x^4),
+\]
+\[
+-8 u(x - \Delta x) + u(x - 2 \Delta x) = -7 u(x) + 6 \Delta x \frac{\partial u}{\partial x}(x) - 2 \Delta x^2 \frac{\partial^2 u}{\partial x^2}(x) + O(\Delta x^4).
+\]
+Adding these two equations yields 
+\[
+u(x - 2 \Delta x) - 8 u(x - \Delta x) + 8 u (x + \Delta x) - u(x + 2 \Delta x) = 12 \Delta x \frac{\partial u}{\partial x}(x) + O(\Delta x^4).
+\]
+Solving this equation for $\frac{\partial u}{\partial x}(x)$, we have
+\[
+\frac{\partial u}{\partial x} = \frac{u(x - 2 \Delta x) - 8 u(x - \Delta x) + 8 u (x + \Delta x) - u(x + 2 \Delta x)}{12 \Delta x} + O(\Delta x^3).
+\]
+\end{document}
