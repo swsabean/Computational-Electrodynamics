@@ -24,12 +24,13 @@ phase_velocities = np.zeros(N_STEPS)
 attenuation = np.zeros(N_STEPS)
 
 for i, N_lambda in enumerate(N_range):
-    if N_lambda < N_transition:
+    zeta = 1 + (1/S)**2 * (np.cos(2*np.pi*S/N_lambda) - 1)
+    if zeta < -1:
         phase_velocities[i] = 2 / N_lambda
     else:
         phase_velocities[i] = (
             2 * np.pi
-            / (N_lambda * np.arccos(1 + 4 * (np.cos(np.pi / N_lambda) - 1)))
+            / (N_lambda * np.arccos(zeta))
         )
         
 for i, N_lambda in enumerate(A_range):
