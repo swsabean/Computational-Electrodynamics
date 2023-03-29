@@ -43,7 +43,7 @@ def main():
     plt.yscale('log')
     plt.xlabel('Grid Sampling Density (points per free-space wavelength)')
     plt.ylabel('Phase Velocity Error (%)')
-    plt.savefig('/storage/emulated/0/Download/Problem2_5.png', dpi=300)
+    plt.savefig('Problem2_5.png', dpi=300)
     plt.show()
 
 if __name__ == "__main__":
